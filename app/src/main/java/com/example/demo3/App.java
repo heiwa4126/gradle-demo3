@@ -3,12 +3,15 @@
  */
 package com.example.demo3;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
     }
 
     public static void main(String[] args) {
+        System.out.println(DigestUtils.md5Hex("do re mi Abc 123"));
         System.out.println(new App().getGreeting());
     }
 }
