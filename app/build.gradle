@@ -23,6 +23,9 @@ dependencies {
 
     // https://mvnrepository.com/artifact/commons-codec/commons-codec
     implementation 'commons-codec:commons-codec:1.15'
+
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-yaml
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.13.4'
 }
 
 testing {
@@ -41,8 +44,9 @@ application {
 }
 
 jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
-        attributes "Main-Class": "com.example.demo3.App"
+        attributes 'Main-Class': application.mainClass
     }
     from {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }

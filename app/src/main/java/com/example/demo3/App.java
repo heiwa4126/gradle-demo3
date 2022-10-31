@@ -4,6 +4,8 @@
 package com.example.demo3;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
 public class App {
     public String getGreeting() {
@@ -11,6 +13,7 @@ public class App {
     }
 
     public static void main(String[] args) {
+        var om = new ObjectMapper(new YAMLFactory());
         System.out.println(DigestUtils.md5Hex("do re mi Abc 123"));
         System.out.println(new App().getGreeting());
     }
